@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import Form from './Form';
+import AppRoute from './common/AppRoute';
 
 class App extends Component {
   render() {
     return (
       <>
-          <Route path='/home' exact component={Form} />
-          <Route path='/next' component={Form} />
-          <Route path='/last' component={Form} />
+          <AppRoute />
       </>
     );
   }
