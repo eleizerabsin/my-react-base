@@ -24,7 +24,7 @@ class Form extends Component {
   render() {
     return (
       <form>
-        {"testtt"}
+        {"input: "}
         <input
           type="text"
           value={this.state.value}

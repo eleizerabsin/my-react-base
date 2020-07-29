@@ -1,17 +1,15 @@
 import React from 'react';
-import ReactDOM from "react-dom";
-import App from "./js/components/App";
-import { BrowserRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import { Provider } from "react-redux";
+import store from "./js/redux/store/index";
+import App from './js/components/App';
+import exampleReducer from './js/redux/reducers';
 
-const Root = (props) => {
-    return (
-        <App/>
-    )
-}
+window.store = store;
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Root/>
-    </BrowserRouter>,
+    <Provider store={store}>
+        <App/>
+    </Provider>,
     document.getElementById('root')
 );

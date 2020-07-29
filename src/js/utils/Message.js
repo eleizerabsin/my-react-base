@@ -1,0 +1,1 @@
+export const MSG001_API_ERROR = "System Error. Please try again later.";
