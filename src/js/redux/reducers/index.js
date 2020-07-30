@@ -29,13 +29,17 @@ const exampleSlice = createSlice({
     extraReducers: {
         [getData.pending]: state => {
             state.loading = MSG002_LOADING;
+            state.apiError = "";
+            state.remoteArticles = [];
         },
         [getData.rejected]: (state, action) => {
             state.loading = "";
             state.apiError = MSG001_API_ERROR;
+            state.remoteArticles = [];
         },
         [getData.fulfilled]: (state, action) => {
             state.loading = "";
+            state.apiError = "";
             state.remoteArticles = state.remoteArticles.concat(action.payload);
         }
     }

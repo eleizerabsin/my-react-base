@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import store from "./js/redux/store/index";
 import App from './js/components/App';
-import exampleReducer from './js/redux/reducers';
+import service from './js/api/axios-middleware';
 
 window.store = store;
 

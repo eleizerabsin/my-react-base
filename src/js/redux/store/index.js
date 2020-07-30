@@ -13,7 +13,7 @@ const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middleware = [
     ...getDefaultMiddleware(),
     forbiddenWordsMiddleware,
-    initializeSagaMiddleware
+    //initializeSagaMiddleware
 ]
 
 // AUTH STATE
@@ -65,6 +65,6 @@ store.subscribe(throttle(() => {
     });
 }, 1000));
 
-initializeSagaMiddleware.run(apiSaga);
+//initializeSagaMiddleware.run(apiSaga);
 
 export default store;
