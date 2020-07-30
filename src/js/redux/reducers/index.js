@@ -1,54 +1,43 @@
-import { createReducer, createAction, createSlice } from "@reduxjs/toolkit";
-//import { ADD_ARTICLE, DATA_LOADED, FOUND_BAD_WORD, API_ERRORED, DATA_REQUESTED } from "../constants/action-types";
-//import { addArticle, foundBadWord, dataLoaded, apiErrored} from "../actions/index";
-//import { initial } from "lodash";
+import { createSlice } from "@reduxjs/toolkit";
+import { MSG001_API_ERROR, MSG002_LOADING} from "../../utils/Message";
+import { getData } from "../../api/Post";
 
 const initialState = {
     articles: [],
     remoteArticles: [],
-    apiError: ""
+    apiError: "",
+    loading: ""
 };
-
-// const exampleReducer = createReducer(initialState, {
-//     [addArticle]: (state, action) => {
-//         //return { ...state, articles: state.articles.concat(action.payload) };
-//         state.articles = state.articles.concat(action.payload);
-//     },
-//     [foundBadWord]: (state, action) => {
-//         //return { ...state, articles: state.articles.concat(action.payload) };
-//         state.articles = state.articles.concat(action.payload);
-//     },
-//     [dataLoaded]: (state, action) => {
-//         //return { ...state, remoteArticles: action.payload };
-//         state.remoteArticles = state.remoteArticles.concat(action.payload);
-//     },
-//     [apiErrored]: (state, action) => {
-//         //return { ...state, apiError: action.payload };
-//         state.apiError = action.payload;
-//     },
-// });
 
 const exampleSlice = createSlice({
     name: "example",
     initialState: initialState,
     reducers: {
         addArticle: (state, action) => {
-            //return { ...state, articles: state.articles.concat(action.payload) };
-            console.log("action.payload", action.payload);
             state.articles = state.articles.concat(action.payload);
         },
         foundBadWord: (state, action) => {
-            //return { ...state, articles: state.articles.concat(action.payload) };
             state.articles = state.articles.concat(action.payload);
         },
         dataLoaded: (state, action) => {
-            //return { ...state, remoteArticles: action.payload };
             state.remoteArticles = state.remoteArticles.concat(action.payload);
         },
         apiErrored: (state, action) => {
-            //return { ...state, apiError: action.payload };
             state.apiError = action.payload;
         },
+    },
+    extraReducers: {
+        [getData.pending]: state => {
+            state.loading = MSG002_LOADING;
+        },
+        [getData.rejected]: (state, action) => {
+            state.loading = "";
+            state.apiError = MSG001_API_ERROR;
+        },
+        [getData.fulfilled]: (state, action) => {
+            state.loading = "";
+            state.remoteArticles = state.remoteArticles.concat(action.payload);
+        }
     }
 });
 

@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, FOUND_BAD_WORD, DATA_LOADED, ARRAY_ERROR} from "../constants/action-types";
+import { ADD_ARTICLE, FOUND_BAD_WORD} from "../constants/action-types";
 
 const forbiddenWords = ["spam", "money"];
 

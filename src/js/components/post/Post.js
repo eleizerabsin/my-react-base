@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getData } from "../../redux/actions";
+import { getData } from "../../api/Post";
 
 export class Post extends Component {
   constructor(props) {
@@ -14,6 +14,7 @@ export class Post extends Component {
   render() {
     return (
       <>
+        <h5>{this.props.loading}</h5>
         <h5>{this.props.apiError}</h5>
         <ul>
           {this.props.articles.map(el => (
@@ -28,17 +29,18 @@ export class Post extends Component {
 function mapStateToProps(state) {
   return {
     articles: state.example.remoteArticles.slice(0, 10),
-    apiError: state.example.apiError
+    apiError: state.example.apiError,
+    loading: state.example.loading
   };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-      getData: (data) => dispatch(getData("test"))
+      getData: (data) => dispatch(getData(data))
     };
 }
 
 export default connect(
   mapStateToProps,
-  { getData }
+  mapDispatchToProps
 )(Post);
