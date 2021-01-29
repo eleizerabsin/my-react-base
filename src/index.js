@@ -7,6 +7,7 @@ import service from './js/api/axios-middleware';
 
 window.store = store;
 
+// rebase new test
 // sample branch rebase
 // rebase
 ReactDOM.render(
