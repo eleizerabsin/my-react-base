@@ -11,7 +11,7 @@ import service from './js/api/axios-middleware';
 
 window.store = store;
 
-
+// new test
 // rebase new test
 // sample branch rebase
 // rebase
