@@ -5,6 +5,8 @@ import store from "./js/redux/store/index";
 import App from './js/components/App';
 import service from './js/api/axios-middleware';
 
+// new rebase test
+
 window.store = store;
 
 // new test
