@@ -5,10 +5,14 @@ import store from "./js/redux/store/index";
 import App from './js/components/App';
 import service from './js/api/axios-middleware';
 
+<<<<<<< HEAD
 // new rebase test
 
 // new test
 
+=======
+// sample brance rebase test 1
+>>>>>>> update
 window.store = store;
 
 // new test
