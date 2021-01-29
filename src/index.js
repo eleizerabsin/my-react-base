@@ -6,6 +6,7 @@ import App from './js/components/App';
 import service from './js/api/axios-middleware';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // new rebase test
 
 // new test
@@ -13,6 +14,9 @@ import service from './js/api/axios-middleware';
 =======
 // sample brance rebase test 1
 >>>>>>> update
+=======
+// sample brance rebase test 1
+>>>>>>> ee92c2daea8bcec82bb13160497bfb4b81d9a9aa
 window.store = store;
 
 // new test
